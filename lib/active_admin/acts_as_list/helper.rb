@@ -18,16 +18,16 @@ module ActiveAdmin
       #    end
       #  end
       def sortable_columns
-        column "&#9650;&#9650;".html_safe do |resource|
+        column "В начало".html_safe do |resource|
           link_to("&#9650;&#9650;".html_safe, self.send(:"move_to_top_admin_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.first?
         end
-        column "&#9650;".html_safe do |resource|
+        column "Выше на строку".html_safe do |resource|
           link_to("&#9650;".html_safe, self.send(:"move_up_admin_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.first?
         end
-        column "&#9660;".html_safe do |resource|
+        column "Ниже на строку".html_safe do |resource|
           link_to("&#9660;".html_safe, self.send(:"move_down_admin_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.last?
         end
-        column "&#9660;&#9660;".html_safe do |resource|
+        column "В конец".html_safe do |resource|
           link_to("&#9660;&#9660;".html_safe, self.send(:"move_to_bottom_admin_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.last?
         end
       end
